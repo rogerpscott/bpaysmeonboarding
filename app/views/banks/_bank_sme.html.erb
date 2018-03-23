@@ -1,0 +1,17 @@
+<div class="col-xs-12 col-sm-4">
+  <div class="place-booking-form">
+    <h3>Make a booking</h3>
+    <%= @bank.name %>
+  </div>
+</div>
+
+<div class="col-xs-12 col-sm-4">
+  <div class="place-booking-form">
+    <h3>Make a booking</h3>
+    <%= simple_form_for [@bank, @sme] do |f| %>
+    <%= f.input :abn, as: :string, label: 'I want to book from...' %>
+    <%= f.input :bsb, as: :string, label: '...up until...' %>
+    <%= f.button :submit, 'Book it :)', class: "btn btn-warning" %>
+    <% end %>
+  </div>
+</div>
