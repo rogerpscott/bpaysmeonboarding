@@ -1,17 +1,26 @@
-<div class="col-xs-12 col-sm-4">
-  <div class="place-booking-form">
-    <h3>Make a booking</h3>
-    <%= @bank.name %>
-  </div>
-</div>
-
-<div class="col-xs-12 col-sm-4">
-  <div class="place-booking-form">
-    <h3>Make a booking</h3>
+<div class="col-xs-12 col-sm-8">
+  <div class="bank-sme-form">
+    <h3>Tell us about your Business</h3>
     <%= simple_form_for [@bank, @sme] do |f| %>
-    <%= f.input :abn, as: :string, label: 'I want to book from...' %>
-    <%= f.input :bsb, as: :string, label: '...up until...' %>
-    <%= f.button :submit, 'Book it :)', class: "btn btn-warning" %>
+      <div class="bank-sme-form">
+        <h4>1. Contact Person</h4>
+        <%= f.input :first_name, as: :string %>
+        <%= f.input :last_name, as: :string %>
+        <%= f.input :email, as: :email %>
+        <%= f.input :phone, as: :string %>
+      </div>
+      <div class="bank-sme-form">
+        <h4>2. Business Information</h4>
+        <%= f.input :abn, as: :string %>
+        <%= f.input :registered_business_name, as: :string %>
+        <%= f.input :bpay_biller_name, as: :string %>
+      </div>
+      <div class="bank-sme-form">
+        <h4>3. Bank Account Information</h4>
+        <%= f.input :bsb, as: :string %>
+        <%= f.input :account_number, as: :string %>
+      </div>
+    <%= f.button :submit, 'Create my BPAY biller account', class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>

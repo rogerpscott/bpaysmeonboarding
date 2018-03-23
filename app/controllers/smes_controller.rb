@@ -1,5 +1,5 @@
 class SmesController < ApplicationController
-
+  before_action :authenticate_user!, except: [:new, :create]
   def new
   end
 
@@ -17,7 +17,7 @@ class SmesController < ApplicationController
   private
 
   def sme_params
-    params.require(:sme).permit(:abn, :bsb, :bank_id)
+    params.require(:sme).permit(:first_name, :last_name, :email, :phone, :registered_business_name, :bpay_biller_name, :abn, :bsb, :account_number, :bank_id)
   end
 
 end
