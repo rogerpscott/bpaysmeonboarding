@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180321052817) do
+ActiveRecord::Schema.define(version: 20180322042150) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,12 +20,31 @@ ActiveRecord::Schema.define(version: 20180321052817) do
     t.string "email"
     t.string "phone"
     t.integer "days_to_confirm"
-    t.boolean "require_pdf"
-    t.boolean "require_debit_credit_question"
-    t.string "status"
+    t.boolean "require_pdf", default: false
+    t.boolean "require_debit_credit_question", default: false
+    t.boolean "active", default: false
     t.string "bsb_prefix"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "smes", force: :cascade do |t|
+    t.string "bsb"
+    t.string "account_number"
+    t.string "abn"
+    t.string "registered_business_name"
+    t.string "bpay_biller_name"
+    t.bigint "bank_id"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone"
+    t.string "email"
+    t.integer "status", default: 0
+    t.datetime "approved_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bank_id"], name: "index_smes_on_bank_id"
+    t.index ["status"], name: "index_smes_on_status"
   end
 
   create_table "users", force: :cascade do |t|
@@ -41,8 +60,12 @@ ActiveRecord::Schema.define(version: 20180321052817) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "bank_id"
+    t.index ["bank_id"], name: "index_users_on_bank_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "smes", "banks"
+  add_foreign_key "users", "banks"
 end

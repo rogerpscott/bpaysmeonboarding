@@ -5,9 +5,9 @@ class CreateBanks < ActiveRecord::Migration[5.1]
       t.string :email
       t.string :phone
       t.integer :days_to_confirm
-      t.boolean :require_pdf
-      t.boolean :require_debit_credit_question
-      t.string :status
+      t.boolean :require_pdf, default: false
+      t.boolean :require_debit_credit_question, default: false
+      t.boolean :active, default: false
       t.string :bsb_prefix
 
       t.timestamps
