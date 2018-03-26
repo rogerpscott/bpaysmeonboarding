@@ -1,11 +1,8 @@
 class Sme < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :email,
-            presence: true,
-            format: { with: /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/ ,
-            message: 'Invalid e-mail! Please provide a valid e-mail address'}
-  validates :phone, presence: true
+  validates :email, presence: true, email_format: { message: "Doesn't look like an email address" }
+  validates :phone, presence: true, phone: true
   validates :bsb, presence: true
   validates :account_number, presence: true
   validates :abn, presence: true

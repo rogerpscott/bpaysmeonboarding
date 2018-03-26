@@ -10,7 +10,7 @@ class SmesController < ApplicationController
     if @sme.save
       redirect_to root_path
     else
-      redirect_to bank_path(@bank), alert: "Unexpected error your booking was not saved"
+      render 'banks/show'
     end
   end
 

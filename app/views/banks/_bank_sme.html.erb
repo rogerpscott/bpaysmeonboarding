@@ -1,26 +1,25 @@
-<div class="col-xs-12 col-sm-8">
+
+<h3>Tell us about your Business</h3>
+<%= simple_form_for [@bank, @sme] do |f| %>
   <div class="bank-sme-form">
-    <h3>Tell us about your Business</h3>
-    <%= simple_form_for [@bank, @sme] do |f| %>
-      <div class="bank-sme-form">
-        <h4>1. Contact Person</h4>
-        <%= f.input :first_name, as: :string %>
-        <%= f.input :last_name, as: :string %>
-        <%= f.input :email, as: :email %>
-        <%= f.input :phone, as: :string %>
-      </div>
-      <div class="bank-sme-form">
-        <h4>2. Business Information</h4>
-        <%= f.input :abn, as: :string %>
-        <%= f.input :registered_business_name, as: :string %>
-        <%= f.input :bpay_biller_name, as: :string %>
-      </div>
-      <div class="bank-sme-form">
-        <h4>3. Bank Account Information</h4>
-        <%= f.input :bsb, as: :string %>
-        <%= f.input :account_number, as: :string %>
-      </div>
-    <%= f.button :submit, 'Create my BPAY biller account', class: "btn btn-primary" %>
-    <% end %>
+    <h4>1. Contact Person</h4>
+    <div class="inline-block">
+      <%= f.input :first_name, placeholder: "First", autofocus:true %>
+      <%= f.input :last_name, placeholder: "Last" %>
+    </div>
+    <%= f.input :email, as: :email, placeholder: "youremail@work.com" %>
+    <%= f.input :phone, as: :tel, placeholder: "0404 040 404", input_html: { maxlength: 10 } %>
   </div>
-</div>
+  <div class="bank-sme-form">
+    <h4>2. Business Information</h4>
+    <%= f.input :abn, label: :ABN, placeholder: "Your Company ABN", input_html: { maxlength: 11 }  %>
+    <%= f.input :registered_business_name, placeholder: "Your Registered Business Name" %>
+    <%= f.input :bpay_biller_name, placeholder: "Your Biller Name", input_html: { maxlength: 20 } %>
+  </div>
+  <div class="bank-sme-form">
+    <h4>3. Bank Account Information</h4>
+    <%= f.input :bsb, label: :BSB, placeholder: "Your BSB", input_html: { maxlength: 6 } %>
+    <%= f.input :account_number, placeholder: "Your Account Number", input_html: { maxlength: 9 }  %>
+  </div>
+  <%= f.button :submit, 'Create my BPAY biller account', class: "btn btn-primary" %>
+<% end %>

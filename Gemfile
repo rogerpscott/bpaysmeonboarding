@@ -16,6 +16,8 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'validates_email_format_of'
+gem 'phonelib'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

@@ -1,7 +1,9 @@
-<div class="wrapper">
-  <div class="container-fluid">
-    <div class="row">
-      <%= render 'banks/bank_sme', bank: @bank %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <div id="background-form">
+        <%= render 'banks/bank_sme', bank: @bank, sme: @sme %>
+      </div>
     </div>
   </div>
 </div>
