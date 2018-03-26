@@ -8,6 +8,8 @@ class SmesController < ApplicationController
     @sme = Sme.new(sme_params)
     @sme.bank = @bank
     if @sme.save
+      SmeMailer.sme_registration(@sme).deliver_now
+      BankMailer.sme_registration(@sme).deliver_now
       redirect_to root_path
     else
       render 'banks/show'
