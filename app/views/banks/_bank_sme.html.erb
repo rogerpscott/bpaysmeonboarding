@@ -1,25 +1,48 @@
 
 <h3>Tell us about your Business</h3>
 <%= simple_form_for [@bank, @sme] do |f| %>
-  <div class="bank-sme-form">
+  <div class="bank-sme-form-block">
     <h4>1. Contact Person</h4>
-    <div class="inline-block">
-      <%= f.input :first_name, placeholder: "First", autofocus:true %>
-      <%= f.input :last_name, placeholder: "Last" %>
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <%= f.input :first_name, placeholder: "First", autofocus:true %>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <%= f.input :last_name, placeholder: "Last" %>
+      </div>
     </div>
-    <%= f.input :email, as: :email, placeholder: "youremail@work.com" %>
-    <%= f.input :phone, as: :tel, placeholder: "0404 040 404", input_html: { maxlength: 10 } %>
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <%= f.input :email, as: :email, placeholder: "youremail@work.com" %>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <%= f.input :phone, as: :tel, placeholder: "0404 040 404", input_html: { maxlength: 10 } %>
+      </div>
+    </div>
   </div>
-  <div class="bank-sme-form">
+  <div class="bank-sme-form-block">
     <h4>2. Business Information</h4>
-    <%= f.input :abn, label: :ABN, placeholder: "Your Company ABN", input_html: { maxlength: 11 }  %>
-    <%= f.input :registered_business_name, placeholder: "Your Registered Business Name" %>
-    <%= f.input :bpay_biller_name, placeholder: "Your Biller Name", input_html: { maxlength: 20 } %>
+    <div class="row">
+      <div class="col-xs-12 col-md-4">
+        <%= f.input :abn, label: :ABN, placeholder: "Your Company ABN", input_html: { maxlength: 11 }  %>
+      </div>
+      <div class="col-xs-12 col-md-8">
+        <%= f.input :registered_business_name, placeholder: "Your Registered Business Name" %>
+      </div>
+    </div>
+    <%= f.input :bpay_biller_name, label: "BPAY Biller Name", placeholder: "Your Biller Name", input_html: { maxlength: 20 } %>
+    <p>(Maximum length for Biller Name is 20 characters.)</p>
   </div>
-  <div class="bank-sme-form">
+  <div class="bank-sme-form-block">
     <h4>3. Bank Account Information</h4>
-    <%= f.input :bsb, label: :BSB, placeholder: "Your BSB", input_html: { maxlength: 6 } %>
-    <%= f.input :account_number, placeholder: "Your Account Number", input_html: { maxlength: 9 }  %>
+    <div class="row">
+      <div class="col-xs-12 col-md-4">
+        <%= f.input :bsb, label: :BSB, placeholder: "Your BSB", input_html: { maxlength: 6 } %>
+      </div>
+      <div class="col-xs-12 col-md-8">
+        <%= f.input :account_number, placeholder: "Your Account Number", input_html: { maxlength: 9 }  %>
+      </div>
+    </div>
   </div>
-  <%= f.button :submit, 'Create my BPAY biller account', class: "btn btn-primary" %>
+  <%= f.button :submit, 'Create BPAY biller account', class: "btn btn-primary" %>
 <% end %>
