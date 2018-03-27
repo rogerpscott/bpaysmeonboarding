@@ -1,6 +1,6 @@
 
 <h3>Tell us about your Business</h3>
-<%= simple_form_for [@bank, @sme] do |f| %>
+<%= simple_form_for [@bank, @sme], validate: true do |f| %>
   <div class="bank-sme-form-block">
     <h4>1. Contact Person</h4>
     <div class="row">
@@ -13,10 +13,10 @@
     </div>
     <div class="row">
       <div class="col-xs-12 col-md-6">
-        <%= f.input :email, as: :email, placeholder: "youremail@work.com" %>
+        <%= f.input :email, as: :email, validate: true, placeholder: "youremail@work.com" %>
       </div>
       <div class="col-xs-12 col-md-6">
-        <%= f.input :phone, as: :tel, placeholder: "0404 040 404", input_html: { maxlength: 10 } %>
+        <%= f.input :phone, as: :tel, placeholder: "0404 040 404", input_html: { maxlength: 10 }, :error_html => { :id => "name_error"} %>
       </div>
     </div>
   </div>
@@ -31,7 +31,7 @@
       </div>
     </div>
     <%= f.input :bpay_biller_name, label: "BPAY Biller Name", placeholder: "Your Biller Name", input_html: { maxlength: 20 } %>
-    <p>(Maximum length for Biller Name is 20 characters.)</p>
+    <%= f.hint '(Maximum length for Biller Name is 20 characters.)' %>
   </div>
   <div class="bank-sme-form-block">
     <h4>3. Bank Account Information</h4>

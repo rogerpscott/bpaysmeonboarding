@@ -18,6 +18,9 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'validates_email_format_of'
 gem 'phonelib'
+gem 'jquery-rails'
+gem 'client_side_validations'
+gem 'client_side_validations-simple_form'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
