@@ -21,6 +21,7 @@ gem 'phonelib'
 gem 'jquery-rails'
 gem 'client_side_validations'
 gem 'client_side_validations-simple_form'
+gem 'friendly_id', '~> 5.1.0'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

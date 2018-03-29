@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :banks, only: [:show] do
+  resources :banks, only: [:show], path: '' do
     resources :smes , only: [:new, :create]
   end
   devise_for :users

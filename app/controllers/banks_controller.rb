@@ -1,6 +1,6 @@
 class BanksController < ApplicationController
   def show
-    @bank = Bank.find(params[:id])
+    @bank = Bank.friendly.find(params[:id])
     @sme = Sme.new
   end
 end
