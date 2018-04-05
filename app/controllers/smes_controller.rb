@@ -4,12 +4,12 @@ class SmesController < ApplicationController
   end
 
   def create
-    @bank = Bank.find(params[:bank_id])
+    @bank = Bank.friendly.find(params[:bank_id])
     @sme = Sme.new(sme_params)
     @sme.bank = @bank
     if @sme.save
-      SmeMailer.sme_registration(@sme).deliver_now
-      BankMailer.sme_registration(@sme).deliver_now
+      @bank.require_pdf ? SmeMailer.sme_registration_with_pdf(@sme).deliver_now : SmeMailer.sme_registration_without_pdf(@sme).deliver_now
+      UserMailer.sme_registration(@sme).deliver_now
       redirect_to root_path
     else
       render 'banks/show'
