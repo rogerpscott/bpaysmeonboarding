@@ -14,6 +14,5 @@ nab = Bank.new(name: "NAB", email: "someone@nab.com", phone:"0405060709", days_t
 nab.save
 
 anzperson = User.new(email: "rogerpscott@gmail.com", password: "123456")
-anzperson.bank = anz
 anzperson.save
 

@@ -6,5 +6,4 @@ class Bank < ApplicationRecord
   validates :phone, presence: true
   validates :days_to_confirm, presence: true
   has_many :smes
-  has_many :users
 end

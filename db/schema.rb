@@ -74,12 +74,9 @@ ActiveRecord::Schema.define(version: 20180329055757) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "bank_id"
-    t.index ["bank_id"], name: "index_users_on_bank_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "smes", "banks"
-  add_foreign_key "users", "banks"
 end
