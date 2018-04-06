@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :banks, only: [:show], path: '' do
-    resources :smes , only: [:new, :create]
+    resources :smes , only: [:new, :create, :show]
   end
   devise_for :users
   root to: 'pages#home'

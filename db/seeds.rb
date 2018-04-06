@@ -13,6 +13,6 @@ anz.save
 nab = Bank.new(name: "NAB", email: "someone@nab.com", phone:"0405060709", days_to_confirm: 5, require_pdf: true)
 nab.save
 
-anzperson = User.new(email: "rogerpscott@gmail.com", password: "123456")
-anzperson.save
+person = User.new(email: "rogerpscott@gmail.com", password: "123456")
+person.save
 
