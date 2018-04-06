@@ -7,8 +7,13 @@ class SmesController < ApplicationController
     @bank = Bank.friendly.find(params[:bank_id])
     @sme = Sme.new(sme_params)
     @sme.bank = @bank
-    if @sme.save
+    if (BSB.lookup @sme.bsb)!= nil && (BSB.lookup @sme.bsb)[:mnemonic] != @bank.name
+      flash[:alert] = "It appears your BSB is not from " + @bank.name
+      render 'banks/show'
+    elsif @sme.save
       confirm(@bank, @sme)
+    elsif (BSB.lookup @sme.bsb) === nil
+      flash[:alert] = "It appears your BSB is not from " + @bank.name
     else
       render 'banks/show'
     end

@@ -16,7 +16,7 @@
         <%= f.input :email, as: :email, validate: true, placeholder: "youremail@work.com" %>
       </div>
       <div class="col-xs-12 col-md-6">
-        <%= f.input :phone, as: :tel, placeholder: "0404 040 404", input_html: { maxlength: 10 }, :error_html => { :id => "name_error"} %>
+        <%= f.input :phone, as: :tel, placeholder: "0404-040-404", input_html: { maxlength: 10 }, :error_html => { :id => "name_error"} %>
       </div>
     </div>
   </div>
@@ -37,7 +37,7 @@
     <h4>3. Bank Account Information</h4>
     <div class="row">
       <div class="col-xs-12 col-md-4">
-        <%= f.input :bsb, label: :BSB, placeholder: "Your BSB", input_html: { maxlength: 6 } %>
+        <%= f.input :bsb, label: :BSB, placeholder: "Your BSB", input_html: { maxlength: 6} %>
       </div>
       <div class="col-xs-12 col-md-8">
         <%= f.input :account_number, placeholder: "Your Account Number", input_html: { maxlength: 9 }  %>

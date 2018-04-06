@@ -24,6 +24,7 @@ gem 'client_side_validations-simple_form'
 gem 'friendly_id', '~> 5.1.0'
 gem 'wkhtmltopdf-binary'
 gem 'wicked_pdf'
+gem 'bsb'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
