@@ -14,6 +14,7 @@ class SmesController < ApplicationController
       confirm(@bank, @sme)
     elsif (BSB.lookup @sme.bsb) === nil
       flash[:alert] = "It appears your BSB is not from " + @bank.name
+      render 'banks/show'
     else
       render 'banks/show'
     end
