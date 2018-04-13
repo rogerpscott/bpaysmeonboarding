@@ -30,7 +30,7 @@
         <%= f.input :registered_business_name, placeholder: "Your Registered Business Name" %>
       </div>
     </div>
-    <%= f.input :bpay_biller_name, label: "BPAY Biller Name", placeholder: "Your Biller Name", input_html: { maxlength: 20 } %>
+    <%= f.input :bpay_biller_name, label: "Choose your BPAY Biller Name", placeholder: "Your Biller Name", input_html: { maxlength: 20 } %>
     <%= f.hint '(Maximum length for Biller Name is 20 characters.)' %>
   </div>
   <div class="bank-sme-form-block">
@@ -46,3 +46,5 @@
   </div>
   <%= f.button :submit, 'Create BPAY biller account', class: "btn btn-primary" %>
 <% end %>
+
+

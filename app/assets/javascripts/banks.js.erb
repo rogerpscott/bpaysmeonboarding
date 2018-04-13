@@ -1,0 +1,17 @@
+  $(document).ready(function() {
+    $('#sme_abn').on('focusout', function () {
+      var abn = document.getElementById('sme_abn').value;
+      var bank = document.getElementsByClassName('navbar-bpay')[0].id;
+      $.ajax({
+        url: "/"+bank+"/lookup_abn",
+        type: "GET",
+        dataType:"json",
+        data: {data_value: abn},
+        success:function(result){
+          document.getElementById('sme_registered_business_name').value = result.main_name;
+          document.getElementById("sme_registered_business_name").disabled = true;
+          console.log(result);
+        }
+      });
+    });
+  });

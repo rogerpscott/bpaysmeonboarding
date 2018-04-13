@@ -1,5 +1,5 @@
 class SmesController < ApplicationController
-  before_action :authenticate_user!, except: [:new, :create, :show]
+  before_action :authenticate_user!, except: [:new, :create, :show, :lookup]
   def new
   end
 
@@ -7,14 +7,8 @@ class SmesController < ApplicationController
     @bank = Bank.friendly.find(params[:bank_id])
     @sme = Sme.new(sme_params)
     @sme.bank = @bank
-    if (BSB.lookup @sme.bsb)!= nil && (BSB.lookup @sme.bsb)[:mnemonic] != @bank.name
-      flash[:alert] = "It appears your BSB is not from " + @bank.name
-      render 'banks/show'
-    elsif @sme.save
+    if @sme.save
       confirm(@bank, @sme)
-    elsif (BSB.lookup @sme.bsb) === nil
-      flash[:alert] = "It appears your BSB is not from " + @bank.name
-      render 'banks/show'
     else
       render 'banks/show'
     end

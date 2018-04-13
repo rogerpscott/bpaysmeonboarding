@@ -25,6 +25,7 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'wkhtmltopdf-binary'
 gem 'wicked_pdf'
 gem 'bsb'
+gem 'abn_search'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
