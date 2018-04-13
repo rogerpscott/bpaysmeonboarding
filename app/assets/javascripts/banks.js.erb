@@ -8,7 +8,7 @@
         dataType:"json",
         data: {data_value: abn},
         success:function(result){
-          document.getElementById('sme_registered_business_name').value = result.main_name;
+          document.getElementById("sme_registered_business_name").value = result.main_name;
           document.getElementById("sme_registered_business_name").disabled = true;
           console.log(result);
         }

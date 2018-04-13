@@ -1,6 +1,13 @@
-User#sme_registration
+A new SME has registered to become a BPAY biller with <%= @bank.name %>
 
-<%= @greeting %>, a new SME registered with the following details:
-  <%= @sme.first_name %>
-  <%= @sme.abn %>
-  Please register it as inactive new biller in the Ops portal and inform <%= @bank.email %> that there is a pending application for them to review
+  <%= @greeting %>, a new SME registered with the following details:
+  First name: <%= @sme.first_name %>
+  Last Name: <%= @sme.last_name %>
+  Email: <%= @sme.email %>
+  Phone number: <%= @sme.phone %>
+  ABN: <%= @sme.abn %>
+  Business name: <%= @sme.registered_business_name %>
+  BSB: <%= @sme.bsb %>
+  Account number: <%= @sme.account_number %>
+  Biller Name: <%= @sme.bpay_biller_name %>
+  Please register it as an inactive new biller in the Ops portal and inform <%= @bank.email %> that there is a pending application for them to review.

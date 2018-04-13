@@ -1,4 +1,19 @@
-blablabla
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <div id="background-form">
+        <h1>Almost done!</h1>
+        <p>We have sent you an email confirming we have received your request.</p>
+        <% if @sme.bank.require_pdf %>
+          <p>In the email you will find an attachment. Please print this attachment, sign it and send to <b><%= @sme.bank.email %></b>. This is a requirement in order to finalize the process.</p>
+          <p>Once this is complete you will receive your BPAY biller starter pack with <b><%= @sme.bank.days_to_confirm %> days</b>.</p>
+        <% else %>
+        <p><%= @sme.bank.name %> will now process your request. You will receive your starter pack within <b><%= @sme.bank.days_to_confirm %> days</b>.</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
   <% if params[:notice].present? %>

@@ -8,7 +8,7 @@ class UserMailer < ApplicationMailer
   def sme_registration(sme)
     @sme = sme
     @bank = @sme.bank
-    mail(to: User.all, subject: 'A new SME has registered to become a BPAY biller')
+    mail(to: User.first.email, subject: 'A new SME has registered to become a BPAY biller')
   end
 
 end

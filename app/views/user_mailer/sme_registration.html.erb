@@ -1,8 +1,13 @@
-<h1>User#sme_registration</h1>
+<h1>A new SME has registered to become a BPAY biller with <%= @bank.name %> the following details:</h1>
 
-<p>
-  <%= @greeting %>, a new SME registered with the following details:
-  <%= @sme.first_name %>
-  <%= @sme.abn %>
-  Please register it as inactive new biller in the Ops portal and inform <%= @bank.email %> that there is a pending application for them to review
+  <p>First name: <%= @sme.first_name %></p>
+  <p>Last Name: <%= @sme.last_name %></p>
+  <p>Email: <%= @sme.email %></p>
+  <p>Phone number: <%= @sme.phone %></p>
+  <p>ABN: <%= @sme.abn %></p>
+  <p>Business name: <%= @sme.registered_business_name %></p>
+  <p>BSB: <%= @sme.bsb %></p>
+  <p>Account number: <%= @sme.account_number %></p>
+  <p>Biller Name: <b><%= @sme.bpay_biller_name %></b></p>
+  <p>Please register it as an inactive new biller in the Ops portal and inform <%= @bank.email %> that there is a pending application for them to review.
 </p>

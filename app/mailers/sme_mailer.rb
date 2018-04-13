@@ -21,7 +21,24 @@ class SmeMailer < ApplicationMailer
 private
 
   def generate_pdf_content
-    pdf = WickedPdf.new.pdf_from_string('<h1>Hello There!</h1>')
+    string = '<h1>BPAY biller Consent Form</h1>
+<p>I confirm that the following details are correct and that I am the owner or representative of the following business</p>
+<br>
+  <p>First name: ' + @sme.first_name + '</p>
+  <p>Last Name: ' + @sme.last_name + '</p>
+  <p>Email: ' + @sme.email + '</p>
+  <p>Phone number: ' + @sme.phone + '</p>
+  <p>ABN: ' + @sme.abn + '</p>
+  <p>Business name: ' + @sme.registered_business_name + '</p>
+  <p>BSB: ' + @sme.bsb + '</p>
+  <p>Account number: ' + @sme.account_number + '</p>
+</p>
+
+<br>
+
+<p> ' + @sme.first_name + ' ' + @sme.last_name + '</p>
+<p>Date:</p>'
+    pdf = WickedPdf.new.pdf_from_string(string)
   end
 
 end
