@@ -1,4 +1,5 @@
 class Sme < ApplicationRecord
+
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, message: "Please enter a valid email" }
@@ -13,4 +14,5 @@ class Sme < ApplicationRecord
   validates :bpay_biller_name, presence: true, format: { with: /^[A-z\s]+$/, multiline: true, message: "Please use only letters and spaces" }
   belongs_to :bank
   enum status: [:new_application, :pending, :approved, :rejected]
+
 end
